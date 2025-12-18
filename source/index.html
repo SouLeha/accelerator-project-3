@@ -9,27 +9,77 @@
   <link rel="stylesheet" href="sass/style.scss">
 </head>
 
-<body class="page-body">
-  <!-- пример использования спрайта -->
-  <img src="/__spritemap#sprite-logo-view" width="410" height="400" alt="Это спрайт">
-  <svg>
-    <use href="/__spritemap#sprite-user"></use>
-  </svg>
-  <svg>
-    <use href="/__spritemap#sprite-burger-menu-view" style="
-    background-color: blue;"></use>
-  </svg>
-  <!-- примеры требуемых атрибутов data-test="*" -->
-  <div data-test="hero">hero</div>
-  <div data-test="about">about</div>
-  <div data-test="programs">programs</div>
-  <div data-test="grant">grant</div>
-  <div data-test="news">news</div>
-  <div data-test="FAQ">FAQ</div>
-  <div data-test="reviews">reviews</div>
-  <div data-test="contacts">contacts</div>
-  <div data-test="form">form</div>
-  <div data-test="footer">footer</div>
+<body>
+
+  <div class="page-body">
+
+    <header class="page-header">
+      <div class="page-header__container" data-test="header">
+
+        <div class="page-header__logo">
+          <div class="page-header__logo-wrapper">
+            <svg class="page-header__logo-icon" width="30" height="30">
+              <use href="/__spritemap#sprite-logo"></use>
+            </svg>
+          </div>
+        </div>
+
+        <div class="page-header__menu">
+          <span class="page-header__menu-name">МЕНЮ</span>
+
+          <button class="page-header__menu-toggle" type="button" aria-label="Открыть меню">
+            <svg class="page-header__menu-icon" width="20" height="20">
+              <use href="/__spritemap#sprite-burger-menu"></use>
+            </svg>
+          </button>
+        </div>
+        <nav class="page-header__nav">
+          <ul class="page-header__nav-list">
+            <li class="page-header__nav-item">
+              <a class="page-header__nav-link" href="#tours">О проекте</a>
+            </li>
+            <li class="page-header__nav-item">
+
+              <details class="programs-dropdown">
+                <summary class="page-header__nav-link submenu-toggle">Программы</summary>
+                <ul class="submenu">
+                  <li><a class="page-header__nav-link" href="#">Стажировки</a></li>
+                  <li><a class="page-header__nav-link" href="#">Волонтерство</a></li>
+                  <li><a class="page-header__nav-link" href="#">Учеба</a></li>
+                  <li><a class="page-header__nav-link" href="#">Религия</a></li>
+                </ul>
+              </details>
+            </li>
+            <li class="page-header__nav-item">
+              <a class="page-header__nav-link" href="#about">Как поехать</a>
+            </li>
+            <li class="page-header__nav-item">
+              <a class="page-header__nav-link" href="#reviews">Отзывы</a>
+            </li>
+            <li class="page-header__nav-item">
+              <a class="page-header__nav-link" href="#gallery">Новости</a>
+            </li>
+            <li class="page-header__nav-item">
+              <a class="page-header__nav-link" href="#contacts">Контакты</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- примеры требуемых атрибутов data-test="*" -->
+    <div data-test="hero">hero</div>
+    <div data-test="about">about</div>
+    <div data-test="programs">programs</div>
+    <div data-test="grant">grant</div>
+    <div data-test="news">news</div>
+    <div data-test="FAQ">FAQ</div>
+    <div data-test="reviews">reviews</div>
+    <div data-test="contacts">contacts</div>
+    <div data-test="form">form</div>
+    <div data-test="footer">footer</div>
+  </div>
+
   <script type="module" src="js/main.js"></script>
 </body>
 

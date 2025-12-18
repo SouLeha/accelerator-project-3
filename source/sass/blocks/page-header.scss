@@ -1,0 +1,228 @@
+.page-header {
+  background-color: #666;
+}
+
+.page-header__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: transparent;
+  padding: 0;
+  padding-top: 20px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.page-header__logo-wrapper {
+
+  border: none;
+  cursor: pointer;
+  padding: 11px;
+  margin: 0;
+  z-index: 1000;
+
+  /* Показываем всегда */
+  background-color: white;
+  border-radius: 50%;
+  border: none;
+}
+
+.page-header__logo-icon {
+  display: block;
+  margin: 0;
+  padding: 0;
+  width: 30px;
+  height: auto;
+}
+
+.page-header__menu {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: white;
+  width: 136px;
+  height: 54px;
+  border-radius: 30px;
+  padding-left: 21px;
+  padding-right: 5px;
+  border: solid 1px #316DC2;
+  color: #316DC2;
+}
+
+/* Базовые стили для всего меню (универсальные) */
+.page-header__menu-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 13px;
+  margin: 0;
+  z-index: 1000;
+
+  /* Показываем всегда */
+  background-color: #316DC2;
+  border-radius: 50%;
+  border: none;
+}
+
+.page-header__menu-icon {
+  display: block;
+  margin: 0;
+  padding: 0;
+  width: 20px;
+  height: auto;
+}
+
+.page-header__nav {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 80%;
+  max-width: 286px;
+  min-height: 398px;
+  background: #316DC2;
+  padding: 35px 25px 25px;
+  overflow-y: auto;
+  z-index: 998;
+  transition: right 0.3s ease;
+  box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.page-header__nav.active {
+  right: 15px;
+  top: 78px;
+}
+
+.page-header__nav-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.page-header__nav-item {
+  margin-bottom: 28px;
+  width: 100%;
+}
+
+.page-header__nav-link {
+  display: block;
+  padding: 12px 0;
+  text-decoration: none;
+  color: inherit;
+  font-size: 16px;
+  width: 100%;
+  color: #f0f0f0;
+  text-transform: uppercase;
+}
+
+/* Стили для выпадающего меню "Программы" */
+.programs-dropdown {
+  width: 100%;
+}
+
+.programs-dropdown summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  font-size: 16px;
+  width: 100%;
+  
+}
+
+.programs-dropdown summary::-webkit-details-marker {
+  display: none;
+}
+
+.programs-dropdown summary::after {
+  content: '▼';
+  font-size: 0.8em;
+  transition: transform 0.3s;
+  margin-left: 10px;
+}
+
+.programs-dropdown[open] summary::after {
+  transform: rotate(180deg);
+}
+
+/* Подменю */
+.submenu {
+  padding-left: 20px;
+  margin-top: 5px;
+  animation: slideDown 0.3s ease;
+  overflow: hidden;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.submenu li {
+  margin-bottom: 10px;
+  list-style: none;
+}
+
+.submenu .page-header__nav-link {
+  padding: 8px 0;
+  font-size: 14px;
+  border-bottom: 1px solid #f5f5f5;
+  color: #666;
+}
+
+.submenu .page-header__nav-link:hover {
+  color: #333;
+}
+
+/* Затемнение фона при открытом меню */
+.page-header__nav::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+
+  z-index: -1;
+  opacity: 0.4;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.page-header__nav.active::before {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.page-header__logo {
+  display: block;
+}
+
+.page-header__menu-toggle {
+  display: block;
+}
+
+/* Убираем стандартный маркер details */
+details>summary {
+  list-style: none;
+}
+
+details>summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Анимация при открытии подменю */
+.programs-dropdown[open] .submenu {
+  display: block;
+}
