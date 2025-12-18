@@ -1,5 +1,5 @@
 .page-header {
-  background-color: #666;
+  background-color: #666666;
 }
 
 .page-header__container {
@@ -14,8 +14,6 @@
 }
 
 .page-header__logo-wrapper {
-
-  border: none;
   cursor: pointer;
   padding: 11px;
   margin: 0;
@@ -45,21 +43,25 @@
   border-radius: 30px;
   padding-left: 21px;
   padding-right: 5px;
-  border: solid 1px #316DC2;
-  color: #316DC2;
+  border: solid 1px #316dc2;
+  color: #316dc2;
+}
+
+.page-header__menu.active {
+  background-color: #316dc2;
+  width: 290px;
 }
 
 /* Базовые стили для всего меню (универсальные) */
 .page-header__menu-toggle {
   background: none;
-  border: none;
   cursor: pointer;
   padding: 13px;
   margin: 0;
   z-index: 1000;
 
   /* Показываем всегда */
-  background-color: #316DC2;
+  background-color: #316dc2;
   border-radius: 50%;
   border: none;
 }
@@ -79,12 +81,14 @@
   width: 80%;
   max-width: 286px;
   min-height: 398px;
-  background: #316DC2;
+  background: #316dc2;
   padding: 35px 25px 25px;
   overflow-y: auto;
   z-index: 998;
-  transition: right 0.3s ease;
-  box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
+
+  // transition: top 0.3s ease;
+  box-shadow: -5px 0 15px rgb(0, 0, 0, 0.1);
 }
 
 .page-header__nav.active {
@@ -110,7 +114,6 @@
   display: block;
   padding: 12px 0;
   text-decoration: none;
-  color: inherit;
   font-size: 16px;
   width: 100%;
   color: #f0f0f0;
@@ -131,7 +134,6 @@
   padding: 12px 0;
   font-size: 16px;
   width: 100%;
-  
 }
 
 .programs-dropdown summary::-webkit-details-marker {
@@ -139,7 +141,7 @@
 }
 
 .programs-dropdown summary::after {
-  content: '▼';
+  content: "▼";
   font-size: 0.8em;
   transition: transform 0.3s;
   margin-left: 10px;
@@ -178,16 +180,16 @@
   padding: 8px 0;
   font-size: 14px;
   border-bottom: 1px solid #f5f5f5;
-  color: #666;
+  color: #666666;
 }
 
 .submenu .page-header__nav-link:hover {
-  color: #333;
+  color: #333333;
 }
 
 /* Затемнение фона при открытом меню */
 .page-header__nav::before {
-  content: '';
+  content: "";
   position: fixed;
   top: 0;
   left: 0;
@@ -214,11 +216,11 @@
 }
 
 /* Убираем стандартный маркер details */
-details>summary {
+details > summary {
   list-style: none;
 }
 
-details>summary::-webkit-details-marker {
+details > summary::-webkit-details-marker {
   display: none;
 }
 
