@@ -141,10 +141,15 @@
 }
 
 .programs-dropdown summary::after {
-  content: "▼";
-  font-size: 0.8em;
+   content: "˅";
+  font-size: 12px;
+  line-height: 1; /* убирает лишнее пространство вокруг символа */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px; /* если нужен контроль по ширине */
+  height: 16px; /* если нужен контроль по высоте */
   transition: transform 0.3s;
-  margin-left: 10px;
 }
 
 .programs-dropdown[open] summary::after {
