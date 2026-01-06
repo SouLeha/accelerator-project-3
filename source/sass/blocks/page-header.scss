@@ -1,5 +1,5 @@
 .page-header {
-  background-color: #666666;
+  background-color: transparent;
 }
 
 .page-header__container {
@@ -17,7 +17,7 @@
   cursor: pointer;
   padding: 11px;
   margin: 0;
-  z-index: 1000;
+  z-index: 10;
 
   /* Показываем всегда */
   background-color: white;
@@ -45,11 +45,19 @@
   padding-right: 5px;
   border: solid 1px #316dc2;
   color: #316dc2;
+
+  cursor: pointer;
+
+  transition: right 0.3s ease,
+  background-color 0.3s ease,
+  border-color 0.3s ease;
 }
 
-.page-header__menu.active {
-  background-color: #316dc2;
+/* Стили для активной кнопки меню */
+.page-header__menu.page-header__menu--active {
   width: 290px;
+  background-color: #316DC2;
+  border-color: #316DC2;
 }
 
 /* Базовые стили для всего меню (универсальные) */
@@ -66,6 +74,11 @@
   border: none;
 }
 
+/* Стили для активной круглой кнопки */
+.page-header__menu-toggle.page-header__menu-toggle--active {
+  background-color: #ffffff;
+}
+
 .page-header__menu-icon {
   display: block;
   margin: 0;
@@ -76,24 +89,25 @@
 
 .page-header__nav {
   position: fixed;
-  top: 0;
+  top: 78px;
   right: -100%;
-  width: 80%;
+  width: 100%;
   max-width: 286px;
-  min-height: 398px;
   background: #316dc2;
-  padding: 35px 25px 25px;
+  padding: 25px;
   overflow-y: auto;
-  z-index: 998;
+  z-index: 50;
   border-radius: 16px;
 
-  // transition: top 0.3s ease;
+  transition: right 0.3s ease;
+
   box-shadow: -5px 0 15px rgb(0, 0, 0, 0.1);
 }
 
-.page-header__nav.active {
+.page-header__nav.page-header__nav--active {
   right: 15px;
   top: 78px;
+  z-index: 100;
 }
 
 .page-header__nav-list {
@@ -106,17 +120,17 @@
 }
 
 .page-header__nav-item {
-  margin-bottom: 28px;
+  margin-bottom: 8px;
   width: 100%;
 }
 
 .page-header__nav-link {
   display: block;
-  padding: 12px 0;
+  padding: 10px 0;
   text-decoration: none;
   font-size: 16px;
   width: 100%;
-  color: #f0f0f0;
+  color: #ffffff;
   text-transform: uppercase;
 }
 
@@ -129,7 +143,7 @@
   list-style: none;
   cursor: pointer;
   display: flex;
-  justify-content: space-between;
+  justify-content: start;
   align-items: center;
   padding: 12px 0;
   font-size: 16px;
@@ -141,19 +155,34 @@
 }
 
 .programs-dropdown summary::after {
-   content: "˅";
+  content: "";
+
+  margin-left: 10px;
   font-size: 12px;
   line-height: 1; /* убирает лишнее пространство вокруг символа */
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 16px; /* если нужен контроль по ширине */
-  height: 16px; /* если нужен контроль по высоте */
-  transition: transform 0.3s;
+  width: 12px; /* если нужен контроль по ширине */
+  height: 12px; /* если нужен контроль по высоте */
+/* Для использования спрайта нужны несколько свойств */
+  mask-image: url(/__spritemap#sprite-arrow-down);
+  -webkit-mask-image: url(/__spritemap#sprite-arrow-down);
+  mask-size: contain;
+  -webkit-mask-size: contain;
+  mask-repeat: no-repeat;
+  -webkit-mask-repeat: no-repeat;
+  mask-position: center;
+  -webkit-mask-position: center;
+
+  /* Цвет иконки - будет цветом фона */
+  background-color: #ffffff;
+
 }
 
 .programs-dropdown[open] summary::after {
   transform: rotate(180deg);
+
 }
 
 /* Подменю */
@@ -162,6 +191,10 @@
   margin-top: 5px;
   animation: slideDown 0.3s ease;
   overflow: hidden;
+}
+
+.submenu__nav-link {
+  text-transform: none;
 }
 
 @keyframes slideDown {
@@ -184,12 +217,11 @@
 .submenu .page-header__nav-link {
   padding: 8px 0;
   font-size: 14px;
-  border-bottom: 1px solid #f5f5f5;
-  color: #666666;
+  opacity: 0.6;
 }
 
 .submenu .page-header__nav-link:hover {
-  color: #333333;
+  opacity: 1;
 }
 
 /* Затемнение фона при открытом меню */
@@ -202,22 +234,31 @@
   height: 100vh;
 
   z-index: -1;
-  opacity: 0.4;
+  // background-color: #f0efe9;
+  opacity: 0.2;
   pointer-events: none;
   transition: opacity 0.3s ease;
+
 }
 
-.page-header__nav.active::before {
+.page-header__nav.page-header__nav--active::before {
   opacity: 1;
   pointer-events: auto;
+
 }
 
 .page-header__logo {
   display: block;
+
+}
+
+.page-header__logo.page-header__logo--hidden {
+  display: none;
 }
 
 .page-header__menu-toggle {
   display: block;
+  z-index: 100;
 }
 
 /* Убираем стандартный маркер details */
@@ -232,4 +273,9 @@ details > summary::-webkit-details-marker {
 /* Анимация при открытии подменю */
 .programs-dropdown[open] .submenu {
   display: block;
+}
+
+/* Стили для текста "МЕНЮ" при активном состоянии */
+.page-header__menu.page-header__menu--active .page-header__menu-name {
+  color: #ffffff;
 }
