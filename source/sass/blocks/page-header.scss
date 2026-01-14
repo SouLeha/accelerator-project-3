@@ -1,5 +1,7 @@
 .page-header {
   background-color: transparent;
+  position: relative; // Добавляем для контекста позиционирования
+  z-index: 900;
 }
 
 .page-header__container {
@@ -45,19 +47,21 @@
   padding-right: 5px;
   border: solid 1px #316dc2;
   color: #316dc2;
-
   cursor: pointer;
-
-  transition: right 0.3s ease,
-  background-color 0.3s ease,
-  border-color 0.3s ease;
+  transition:
+    right 0.3s ease,
+    background-color 0.3s ease,
+    border-color 0.3s ease;
+  position: relative; // Для z-index
+  z-index: 1001; // Высокий z-index для кнопки меню
 }
 
 /* Стили для активной кнопки меню */
 .page-header__menu.page-header__menu--active {
   width: 290px;
-  background-color: #316DC2;
-  border-color: #316DC2;
+  background-color: #316dc2;
+  border-color: #316dc2;
+  z-index: 1001; // Сохраняем высокий z-index
 }
 
 /* Базовые стили для всего меню (универсальные) */
@@ -66,7 +70,7 @@
   cursor: pointer;
   padding: 13px;
   margin: 0;
-  z-index: 1000;
+  z-index: 1002; // Еще выше для кнопки-бургера
 
   /* Показываем всегда */
   background-color: #316dc2;
@@ -96,7 +100,7 @@
   background: #316dc2;
   padding: 25px;
   overflow-y: auto;
-  z-index: 50;
+  z-index: 1000; // Высокий z-index для меню
   border-radius: 16px;
 
   transition: right 0.3s ease;
@@ -107,7 +111,7 @@
 .page-header__nav.page-header__nav--active {
   right: 15px;
   top: 78px;
-  z-index: 100;
+  z-index: 1000;
 }
 
 .page-header__nav-list {
@@ -156,33 +160,23 @@
 
 .programs-dropdown summary::after {
   content: "";
-
   margin-left: 10px;
   font-size: 12px;
-  line-height: 1; /* убирает лишнее пространство вокруг символа */
+  line-height: 1;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 12px; /* если нужен контроль по ширине */
-  height: 12px; /* если нужен контроль по высоте */
-/* Для использования спрайта нужны несколько свойств */
-  mask-image: url(/__spritemap#sprite-arrow-down);
-  -webkit-mask-image: url(/__spritemap#sprite-arrow-down);
+  width: 12px;
+  height: 12px;
+  mask-image: url("/__spritemap#sprite-arrow-down");
   mask-size: contain;
-  -webkit-mask-size: contain;
   mask-repeat: no-repeat;
-  -webkit-mask-repeat: no-repeat;
   mask-position: center;
-  -webkit-mask-position: center;
-
-  /* Цвет иконки - будет цветом фона */
   background-color: #ffffff;
-
 }
 
 .programs-dropdown[open] summary::after {
   transform: rotate(180deg);
-
 }
 
 /* Подменю */
@@ -224,32 +218,27 @@
   opacity: 1;
 }
 
-/* Затемнение фона при открытом меню */
-.page-header__nav::before {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
+// Удаляем старый псевдоэлемент
+// .page-header__nav::before {
+//   content: "";
+//   position: fixed;
+//   top: 0;
+//   left: 0;
+//   width: 100vw;
+//   height: 100vh;
+//   z-index: -1;
+//   opacity: 0.2;
+//   pointer-events: none;
+//   transition: opacity 0.3s ease;
+// }
 
-  z-index: -1;
-  // background-color: #f0efe9;
-  opacity: 0.2;
-  pointer-events: none;
-  transition: opacity 0.3s ease;
-
-}
-
-.page-header__nav.page-header__nav--active::before {
-  opacity: 1;
-  pointer-events: auto;
-
-}
+// .page-header__nav.page-header__nav--active::before {
+//   opacity: 1;
+//   pointer-events: auto;
+// }
 
 .page-header__logo {
   display: block;
-
 }
 
 .page-header__logo.page-header__logo--hidden {
@@ -258,7 +247,7 @@
 
 .page-header__menu-toggle {
   display: block;
-  z-index: 100;
+  z-index: 1002;
 }
 
 /* Убираем стандартный маркер details */
@@ -278,4 +267,35 @@ details > summary::-webkit-details-marker {
 /* Стили для текста "МЕНЮ" при активном состоянии */
 .page-header__menu.page-header__menu--active .page-header__menu-name {
   color: #ffffff;
+}
+
+/* ===== НОВЫЕ СТИЛИ ДЛЯ ФОНА-ЗАТЕМНЕНИЯ ===== */
+
+// Фон-оверлей для затемнения всей страницы
+.page-header__overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(0, 0, 0, 0.5); // Полупрозрачный черный фон
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  z-index: 999; // Ниже меню (1000) и кнопки (1001), но выше всего остального
+
+  // Блокируем скролл на фоне
+  touch-action: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+// Активное состояние оверлея
+.page-header__overlay.page-header__overlay--active {
+  opacity: 1;
+  visibility: visible;
+}
+
+// Когда меню открыто, запрещаем прокрутку страницы
+body.menu-open {
+  overflow: hidden;
 }

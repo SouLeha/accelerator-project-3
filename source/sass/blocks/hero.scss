@@ -1,3 +1,238 @@
 .hero {
-  display: block;
+  background-color: #3b3c3d;
+  width: 100%;
+  position: relative;
+  top: -74px;
+  z-index: 1;
 }
+
+.hero__container {
+  width: 320px;
+  margin: 0 auto;
+
+  @media (min-width: $tablet-width) {
+    width: 768px;
+    padding: 0 30px;
+  }
+
+  @media (min-width: $desktop-width) {
+    width: 1440px;
+    padding: 0 40px;
+  }
+}
+
+.hero__slider {
+  width: 100%;
+  height: 568px;
+  position: relative;
+  padding: 0;
+
+  @media (max-width: $mobile-width-only) {
+    min-height: 568px;
+  }
+
+  @media (min-width: $tablet-width) and (width <= 1439px) {
+    min-height: 1034px;
+  }
+
+  @media (min-width: $desktop-width) {
+    min-height: 800px;
+  }
+}
+
+.hero__slide {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  z-index: 2;
+
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.hero__image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.hero__img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+
+  min-height: 568px;
+
+  @media (max-width: $mobile-width-only) {
+    height: 568px;
+    min-height: 568px;
+  }
+
+  @media (min-width: $tablet-width) and (width <= 1439px) {
+    height: 1034px;
+    min-height: 1034px;
+  }
+
+  @media (min-width: $desktop-width) {
+    height: 800px;
+    min-height: 800px;
+  }
+}
+
+.hero__content {
+  position: absolute;
+  display: block;
+  margin: 0 auto;
+
+  z-index: 10;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  text-align: center;
+  padding: 0;
+  width: 100%;
+
+  background-color: $white;
+
+  max-width: 280px;
+
+  @media (min-width: $tablet-width) {
+    max-width: 400px;
+  }
+
+  @media (min-width: $desktop-width) {
+    max-width: 500px;
+  }
+}
+
+.hero__slide-title {
+  font-size: 26px;
+  font-weight: 800;
+  line-height: 26px;
+  color: $accent;
+  margin: 0;
+  padding: 0;
+
+
+  @media (min-width: $tablet-width) {
+    font-size: 56px;
+    line-height: 56px;
+  }
+
+  @media (min-width: $desktop-width) {
+    font-size: 77px;
+    line-height: 77px;
+  }
+}
+
+.hero__slide-description {
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 20px;
+  margin: 0;
+  padding-top: 15px;
+  overflow-wrap: break-word;
+
+  @media (min-width: $desktop-width) {
+    padding-top: 25px;
+  }
+}
+
+.hero__button {
+  background-color: $accent;
+  color: $white;
+  border: none;
+  padding: 20px 34px;
+  font-size: 16px;
+  line-height: 16px;
+  font-weight: 500;
+  border-radius: 0;
+  cursor: pointer;
+  margin: 0 auto;
+  display: block;
+
+  &:hover {
+    opacity: 0.6;
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    opacity: 0.8;
+    transform: translateY(0);
+  }
+
+  @media (min-width: $tablet-width) {
+    margin-top: 35px;
+    margin-right: auto;
+  }
+}
+
+
+.hero-pagination-container {
+  position: absolute;
+  top: 250px;
+  left: 15px;
+
+  width: 90px;
+  height: 28px;
+  z-index: 10;
+  background-color: $white;
+
+  // Центрируем содержимое
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* Позиционирование пагинации */
+  // .swiper-pagination.swiper-pagination-horizontal {
+  //   bottom: 10px;
+  //   left: 0;
+  //   width: 100%;
+  // }
+
+  // .swiper-pagination.swiper-pagination-vertical {
+  //   right: 10px;
+  //   top: 50%;
+  //   transform: translate3d(0, -50%, 0);
+  // }
+
+  /* Стили для точек (bullets) */
+  .swiper-pagination-bullet {
+    width: 8px;
+    height: 8px;
+    display: inline-block;
+    transform: scale(1.2);
+    border: 2px solid $accent;
+    border-radius: 50%;
+    background: transparent;
+    opacity: 1;
+
+    margin: 0 4px;
+    cursor: pointer;
+
+    // transition: all 0.3s ease;
+  }
+
+  .swiper-pagination-bullet-active {
+    opacity: 1;
+    border: none;
+    background: #007aff;
+  }
+}
+
+// Создаем кастомную пагинацию
+.hero-pagination {
+  position: absolute;
+  text-align: center;
+
+  transform: translate3d(0, 0, 0);
+  z-index: 10;
+}
+

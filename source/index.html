@@ -12,7 +12,7 @@
 <body>
 
   <div class="page-body">
-
+    <h1 class="visually-hidden">Стажировка</h1>
     <header class="page-header">
       <div class="page-header__container" data-test="header">
 
@@ -66,18 +66,111 @@
         </nav>
       </div>
     </header>
+    <main>
+      <section class="hero" data-test="hero">
+        <div class="hero__container">
 
-    <!-- примеры требуемых атрибутов data-test="*" -->
-    <div data-test="hero">hero</div>
-    <div data-test="about">about</div>
-    <div data-test="programs">programs</div>
-    <div data-test="grant">grant</div>
-    <div data-test="news">news</div>
-    <div data-test="FAQ">FAQ</div>
-    <div data-test="reviews">reviews</div>
-    <div data-test="contacts">contacts</div>
-    <div data-test="form">form</div>
-    <div data-test="footer">footer</div>
+          <div class="hero__slider swiper">
+
+            <div class="hero__wrapper swiper-wrapper">
+
+              <!------------------- СЛАЙД 1--------------------->
+
+              <div class="hero__slide swiper-slide">
+
+                <div class="hero__image">
+                  <picture>
+                    <source type="image/webp" media="(min-width: 1440px)" srcset="img/images-hero/slide-1-desktop@1x.webp 1x, img/images-hero/slide-1-desktop@2x.webp 2x" width="1440" height="800">
+                    <source type="image/webp" media="(min-width: 768px)" srcset="img/images-hero/slide-1-tablet@1x.webp 1x, img/images-hero/slide-1-tablet@2x.webp 2x" width="768" height="1024">
+                    <source type="image/webp" srcset="img/images-hero/slide-1-mobile@1x.webp 1x, img/images-hero/slide-1-mobile@2x.webp 2x" width="320" height="568">
+                    <source type="image/jpeg" media="(min-width: 1440px)" srcset="img/images-hero/slide-1-desktop@1x.jpg 1x, img/images-hero/slide-1-desktop@2x.jpg 2x" width="1440" height="800">
+                    <source type="image/jpeg" media="(min-width: 768px)" srcset="img/images-hero/slide-1-tablet@1x.jpg 1x, img/images-hero/slide-1-mobile@2x.jpg 2x" width="768" height="1024">
+                    <img class="hero__img" src="img/images-hero/slide-1-mobile@2x.jpg" width="320" height="568" alt="описание">
+                  </picture>
+                </div>
+                <div class="hero__content">
+                  <h2 class="hero__slide-title">Программы стажировок в крупнейших компаниях мира</h2>
+                  <p class="hero__slide-description">Получите незаменимый опыт работы в ведущих мировых компаниях и государственных организациях.</p>
+                  <div class="hero__button">
+                    <span class="hero__button-name">Подробнее</span>
+
+                    <button class="hero__button-toggle" type="button" aria-label="Открыть меню">
+                      <svg class="hero__button-icon" width="20" height="20">
+                        <use href="/__spritemap#sprite-arrow-down"></use>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+
+              </div>
+
+              <!------------------- СЛАЙД 2--------------------->
+
+              <div class="hero__slide swiper-slide">
+                <div class="hero__image">
+                  <picture>
+                    <source type="image/webp" media="(min-width: 1440px)" srcset="img/images-hero/slide-2-desktop@1x.webp 1x, img/images-hero/slide-2-desktop@2x.webp 2x" width="1440" height="800">
+                    <source type="image/webp" media="(min-width: 768px)" srcset="img/images-hero/slide-2-tablet@1x.webp 1x, img/images-hero/slide-2-tablet@2x.webp 2x" width="768" height="1024">
+                    <source type="image/webp" srcset="img/images-hero/slide-2-mobile@1x.webp 1x, img/images-hero/slide-2-mobile@2x.webp 2x" width="320" height="568">
+                    <source type="image/jpeg" media="(min-width: 1440px)" srcset="img/images-hero/slide-2-desktop@1x.jpg 1x, img/images-hero/slide-2-desktop@2x.jpg 2x" width="1440" height="800">
+                    <source type="image/jpeg" media="(min-width: 768px)" srcset="img/images-hero/slide-2-tablet@1x.jpg 1x, img/images-hero/slide-2-mobile@2x.jpg 2x" width="768" height="1024">
+                    <img class="hero__img" src="img/images-hero/slide-2-mobile@2x.jpg" width="320" height="568" alt="описание">
+                  </picture>
+                </div>
+
+                <div class="hero__content">
+                  <h2 class="hero__slide-title">Волонтёрские программы — внесите свой вклад в общество</h2>
+                </div>
+
+              </div>
+
+              <!------------------- СЛАЙД 3--------------------->
+
+              <div class="hero__slide swiper-slide">
+                <div class="hero__image">
+                  <picture>
+                    <source type="image/webp" media="(min-width: 1440px)" srcset="img/images-hero/slide-3-desktop@1x.webp 1x, img/images-hero/slide-3-desktop@2x.webp 2x" width="1440" height="800">
+                    <source type="image/webp" media="(min-width: 768px)" srcset="img/images-hero/slide-3-tablet@1x.webp 1x, img/images-hero/slide-3-tablet@2x.webp 2x" width="768" height="1024">
+                    <source type="image/webp" srcset="img/images-hero/slide-3-mobile@1x.webp 1x, img/images-hero/slide-3-mobile@2x.webp 2x" width="320" height="568">
+                    <source type="image/jpeg" media="(min-width: 1440px)" srcset="img/images-hero/slide-3-desktop@1x.jpg 1x, img/images-hero/slide-3-desktop@2x.jpg 2x" width="1440" height="800">
+                    <source type="image/jpeg" media="(min-width: 768px)" srcset="img/images-hero/slide-3-tablet@1x.jpg 1x, img/images-hero/slide-3-mobile@2x.jpg 2x" width="768" height="1024">
+                    <img class="hero__img" src="img/images-hero/slide-3-mobile@2x.jpg" width="320" height="568" alt="описание">
+                  </picture>
+                </div>
+
+                <div class="hero__content">
+                  <h2 class="hero__slide-title">Глобальный профессиональный опыт обучения за рубежом</h2>
+                </div>
+
+              </div>
+
+            </div>
+            <!-- Пагинация -->
+            <div class="hero-pagination-container">
+              <div class="hero__pagination">
+                <div class="swiper-pagination custom-pagination"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- примеры требуемых атрибутов data-test="*" -->
+
+      <div data-test="about">about</div>
+      <div data-test="programs">programs</div>
+      <div data-test="grant">grant</div>
+      <div data-test="news">news</div>
+      <div data-test="FAQ">FAQ</div>
+      <div data-test="reviews">reviews</div>
+      <div data-test="contacts">contacts</div>
+
+    </main>
+
+    <footer>
+      <div data-test="form">form</div>
+      <div data-test="footer">footer</div>
+    </footer>
   </div>
 
   <script type="module" src="js/main.js"></script>
