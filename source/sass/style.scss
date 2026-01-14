@@ -2,4 +2,14 @@
 // ---------------------------------
 
 @import "vendor/normalize";
-@import "global/nebo.scss";
+
+// -----------GLOBAL-----------------
+@import "./global/variables";
+@import "./global/nebo";
+@import "./global/mixins";
+@import "./global/fonts";
+@import "./global/global";
+
+// -----------BLOCKS-----------------
+@import "./blocks/page-header";
+@import "./blocks/hero";
